@@ -52,10 +52,12 @@ function Login() {
         </p>
         {error && <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{error}</p>}
         <form onSubmit={handleSubmit(login)} className="mt-7">
+          <p className="mb-4 text-left text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
           <div className="space-y-5 text-left">
             <Input
               type="email"
               label="Email"
+              required
               placeholder="Enter your email"
               {...register("email", {
                 required: true,
@@ -68,6 +70,7 @@ function Login() {
             />
             <Input
               label="Password"
+              required
               type="password"
               placeholder="Enter your password"
               {...register("password", {

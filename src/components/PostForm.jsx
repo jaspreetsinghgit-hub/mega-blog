@@ -111,17 +111,20 @@ export default function PostForm({ post }) {
       onSubmit={handleSubmit(submit)}
       className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7"
     >
+      <p className="mb-5 text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
       <div className="grid grid-cols-1 gap-7 lg:grid-cols-3">
         <div className="space-y-5 lg:col-span-2">
           <Input
-            label="Title :"
+            label="Title"
+            required
             placeholder="Title"
             className="mb-0"
             {...register("title", { required: true })}
           />
 
           <Input
-            label="Slug :"
+            label="Slug"
+            required
             placeholder="Slug"
             className="mb-0"
             onInput={(e) => {
@@ -133,16 +136,19 @@ export default function PostForm({ post }) {
           />
 
           <RTE
-            label="Content :"
+            label="Content"
+            required
             name="content"
             control={control}
             defaultValue={getValues("content")}
+            required
           />
         </div>
 
         <div className="space-y-5">
           <Input
-            label="Featured Image :"
+            label="Featured Image"
+            required={!post}
             type="file"
             className="mb-0 cursor-pointer file:mr-4 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-slate-700 hover:file:bg-slate-200"
             accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -162,6 +168,7 @@ export default function PostForm({ post }) {
           <Select
             options={["active", "inactive"]}
             label="Status"
+            required
             {...register("status", { required: true })}
           />
 

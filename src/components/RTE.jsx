@@ -1,18 +1,19 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
-export default function RTE({ name, control, label, defaultValue = "" }) {
+export default function RTE({ name, control, label, defaultValue = "", required = false }) {
   return (
     <div className="w-full">
       {label && (
         <label className="mb-2 block pl-1 text-sm font-medium text-slate-700">
-          {label}
+          {label}{required && <span className="ml-1 text-red-500">*</span>}
         </label>
       )}
       <div className="overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
         <Controller
           name={name || "content"}
           control={control}
+          rules={required ? { required: true } : undefined}
           render={({ field: { onChange } }) => (
             <Editor
               apiKey="j2ypi2qdc1g60qibq8enq5f0jwbcdl7hy37c8ean8p8ket5k"

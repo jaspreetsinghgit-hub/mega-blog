@@ -24,7 +24,7 @@ function Home() {
         <Container>
           <div className="rounded-xl border border-slate-200 bg-white px-6 py-12 text-center shadow-sm">
             <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-              Login to read posts
+              No posts available yet
             </h1>
           </div>
         </Container>

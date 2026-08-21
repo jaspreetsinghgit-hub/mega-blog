@@ -53,9 +53,11 @@ function Signup() {
         {error && <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{error}</p>}
 
         <form onSubmit={handleSubmit(create)} className="mt-7">
+          <p className="mb-4 text-left text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
           <div className="space-y-5 text-left">
             <Input
               label="Full name"
+              required
               placeholder="Enter your full name"
               {...register("name", {
                 required: true,
@@ -64,6 +66,7 @@ function Signup() {
             <Input
               type="email"
               label="Email"
+              required
               placeholder="Enter your email"
               {...register("email", {
                 required: true,
@@ -78,6 +81,7 @@ function Signup() {
               type="password"
               placeholder="Enter password"
               label="Password"
+              required
               {...register("password", {
                 required: true,
               })}
