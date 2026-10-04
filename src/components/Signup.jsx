@@ -26,7 +26,17 @@ function Signup() {
         navigate("/");
       }
     } catch (err) {
-      console.log("Error in signup component's create function : ", err);
+      console.log("Signup error:", err);
+
+      if (err.code === 400) {
+        setError(
+          "Please check your email and password. Password must be at least 8 characters.",
+        );
+      } else if (err.code === 409) {
+        setError("An account with this email already exists.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -50,10 +60,16 @@ function Signup() {
             Sign in
           </Link>
         </p>
-        {error && <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{error}</p>}
+        {error && (
+          <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
+            {error}
+          </p>
+        )}
 
         <form onSubmit={handleSubmit(create)} className="mt-7">
-          <p className="mb-4 text-left text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
+          <p className="mb-4 text-left text-xs text-slate-500">
+            <span className="text-red-500">*</span> Required fields
+          </p>
           <div className="space-y-5 text-left">
             <Input
               label="Full name"
@@ -83,7 +99,11 @@ function Signup() {
               label="Password"
               required
               {...register("password", {
-                required: true,
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters long",
+                },
               })}
             />
             <Button

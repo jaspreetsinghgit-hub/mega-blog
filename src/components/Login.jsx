@@ -10,11 +10,14 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [error, setError] = useState("");
 
   const login = async (data) => {
-    console.log(data);
     setError("");
     try {
       const session = await authService.login(data);
@@ -26,7 +29,13 @@ function Login() {
         navigate("/");
       }
     } catch (err) {
-      setError(err.message);
+      if (err.code === 401) {
+        setError("Invalid email or password.");
+      } else if (err.code === 429) {
+        setError("Too many login attempts. Please wait and try again later.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -50,9 +59,15 @@ function Login() {
             Sign up
           </Link>
         </p>
-        {error && <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{error}</p>}
+        {error && (
+          <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
+            {error}
+          </p>
+        )}
         <form onSubmit={handleSubmit(login)} className="mt-7">
-          <p className="mb-4 text-left text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
+          <p className="mb-4 text-left text-xs text-slate-500">
+            <span className="text-red-500">*</span> Required fields
+          </p>
           <div className="space-y-5 text-left">
             <Input
               type="email"
@@ -74,9 +89,18 @@ function Login() {
               type="password"
               placeholder="Enter your password"
               {...register("password", {
-                required: true,
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters long",
+                },
               })}
             />
+            {errors.password && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.password.message}
+              </p>
+            )}
             <Button children="Sign in" type="submit" className="w-full" />
           </div>
         </form>

@@ -5,6 +5,7 @@ import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 import { useSelector, useDispatch } from "react-redux";
+import { removePost } from "../store/postSlice";
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -25,14 +26,17 @@ export default function Post() {
     } else navigate("/");
   }, [slug, navigate]);
 
-  const deletePost = () => {
-    service.deletePost(post.$id).then((status) => {
-      if (status) {
-        service.deleteFile(post.featuredImage);
-        dispatch(removePost(post.$id));
-        navigate("/");
+  const deletePost = async () => {
+    const status = await service.deletePost(post.$id);
+
+    if (status) {
+      if (post.featuredImage) {
+        await service.deleteFile(post.featuredImage);
       }
-    });
+
+      dispatch(removePost(post.$id));
+      navigate("/");
+    }
   };
 
   return post ? (

@@ -6,15 +6,22 @@ import { Container, PostForm } from "../components";
 function EditPost() {
   const [post, setPost] = useState(null);
   const navigate = useNavigate();
-
   const { slug } = useParams();
+
   useEffect(() => {
-    if (slug) {
-      console.log(slug);
-      service.getPost(slug).then((post) => setPost(post));
-    } else {
+    if (!slug) {
       navigate("/");
+      return;
     }
+
+    service.getPost(slug).then((post) => {
+      if (post) {
+        setPost(post);
+      } else {
+        console.log("Post not found:", slug);
+        navigate("/");
+      }
+    });
   }, [slug, navigate]);
 
   return post ? (
