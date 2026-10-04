@@ -23,14 +23,9 @@ export default function PostForm({ post }) {
     });
 
   const submit = async (data) => {
-    console.log("Inside postForms submit");
-
     try {
       if (post) {
-        console.log(data);
-        console.log("Image:", data.image);
 
-        console.log("User:", userData);
         const file = data.image[0]
           ? await appwriteService.uploadFile(data.image[0])
           : null;
@@ -42,19 +37,11 @@ export default function PostForm({ post }) {
           featuredImage: file ? file.$id : undefined,
         });
 
-        console.log("file:", file);
-        console.log("userData:", userData);
-
-        console.log("post:", post);
         if (dbPost) {
           dispatch(updatePost(dbPost));
           navigate(`/post/${dbPost.$id}`);
         }
       } else {
-        console.log(data);
-        console.log("Image:", data.image);
-
-        console.log("User:", userData);
         const file = data.image[0]
           ? await appwriteService.uploadFile(data.image[0])
           : null;
@@ -68,10 +55,6 @@ export default function PostForm({ post }) {
             userId: userData ? userData.$id : undefined,
           });
 
-          console.log("file:", file);
-          console.log("userData:", userData);
-
-          console.log("post:", post);
           if (dbPost) {
             dispatch(addPost(dbPost));
             navigate(`/post/${dbPost.$id}`);
