@@ -40,17 +40,17 @@ function Login() {
   };
 
   return (
-    <div className="flex w-full items-center justify-center px-4 text-center text-black">
-      <div className="mx-auto w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
-        <div className="mb-5 flex justify-center">
-          <span className="inline-block w-full max-w-25">
+    <div className="flex w-full items-center justify-center px-4 py-10 text-center text-black sm:py-16">
+      <div className="mx-auto w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-7 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:p-10">
+        <div className="mb-6 flex justify-center">
+          <span className="inline-block w-full max-w-25 rounded-xl bg-slate-50 px-3 py-2">
             <Logo width="100%" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight text-slate-900">
+        <h2 className="text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl">
           Sign in to Your Account
         </h2>
-        <p className="mt-2 text-center text-sm text-slate-500 sm:text-base">
+        <p className="mt-2 text-sm text-slate-500 sm:text-base">
           Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
@@ -60,11 +60,11 @@ function Login() {
           </Link>
         </p>
         {error && (
-          <p className="mt-6 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
+          <p className="mt-6 rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-left text-sm font-medium text-red-600">
             {error}
           </p>
         )}
-        <form onSubmit={handleSubmit(login)} className="mt-7">
+        <form onSubmit={handleSubmit(login)} className="mt-8">
           <p className="mb-4 text-left text-xs text-slate-500">
             <span className="text-red-500">*</span> Required fields
           </p>
@@ -101,7 +101,7 @@ function Login() {
                 {errors.password.message}
               </p>
             )}
-            <Button children="Sign in" type="submit" className="w-full" />
+            <Button children="Sign in" type="submit" className="w-full py-3" />
           </div>
         </form>
       </div>

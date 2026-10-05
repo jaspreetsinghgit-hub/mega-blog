@@ -19,7 +19,7 @@ export default function Protected({ children, authentication = true }) {
   }, [authStatus, navigate, authentication]);
 
   return loading ? (
-    <div className="flex min-h-[40vh] items-center justify-center text-sm font-medium text-slate-500">
+    <div className="flex min-h-[40vh] items-center justify-center rounded-2xl text-sm font-semibold text-slate-500">
       Loading...
     </div>
   ) : (

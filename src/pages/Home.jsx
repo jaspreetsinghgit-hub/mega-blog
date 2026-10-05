@@ -22,8 +22,8 @@ function Home() {
     return (
       <div className="w-full py-16 sm:py-20">
         <Container>
-          <div className="rounded-xl border border-slate-200 bg-white px-6 py-12 text-center shadow-sm">
-            <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <div className="rounded-2xl border border-slate-200 bg-white px-6 py-14 text-center shadow-sm">
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               No posts available yet
             </h1>
           </div>
@@ -33,9 +33,9 @@ function Home() {
   }
 
   return (
-    <div className="w-full py-10 sm:py-14">
+    <div className="w-full py-12 sm:py-16">
       <Container>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {posts.map((post) => (
             <div key={post.$id}>
               <PostCard {...post} />

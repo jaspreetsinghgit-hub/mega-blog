@@ -5,14 +5,14 @@ function Select({ options, label, classname = "", required = false, ref, ...prop
   return (
     <div className="w-full">
       {label && (
-        <label htmlFor={id} className="mb-2 inline-block pl-1 text-sm font-medium text-slate-700">
+        <label htmlFor={id} className="mb-2 block text-sm font-bold text-slate-700">
           {label}{required && <span className="ml-1 text-red-500">*</span>}
         </label>
       )}
       <select
         {...props}
         required={required}
-        className={`${classname} w-full cursor-pointer rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-slate-900 outline-none transition duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100`}
+        className={`${classname} w-full cursor-pointer rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition duration-200 hover:border-slate-300 hover:bg-white focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100`}
         id={id}
         ref={ref}
       >

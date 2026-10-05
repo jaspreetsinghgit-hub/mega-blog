@@ -92,11 +92,13 @@ export default function PostForm({ post }) {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7"
+      className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.09)]"
     >
-      <p className="mb-5 text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
-      <div className="grid grid-cols-1 gap-7 lg:grid-cols-3">
-        <div className="space-y-5 lg:col-span-2">
+      <div className="border-b border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50/60 px-5 py-4 sm:px-7">
+        <p className="text-xs text-slate-500"><span className="text-red-500">*</span> Required fields</p>
+      </div>
+      <div className="grid grid-cols-1 gap-8 p-6 sm:p-8 lg:grid-cols-3">
+        <div className="space-y-6 lg:col-span-2">
           <Input
             label="Title"
             required
@@ -128,18 +130,18 @@ export default function PostForm({ post }) {
           />
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-inner sm:p-6">
           <Input
             label="Featured Image"
             required={!post}
             type="file"
-            className="mb-0 cursor-pointer file:mr-4 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-slate-700 hover:file:bg-slate-200"
+            className="mb-0 cursor-pointer file:mr-4 file:rounded-lg file:border-0 file:bg-blue-50 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
             accept="image/png, image/jpg, image/jpeg, image/gif"
             {...register("image", { required: !post })}
           />
 
           {post && (
-            <div className="w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-2">
+            <div className="w-full overflow-hidden rounded-xl border border-slate-200 bg-white p-2 shadow-sm">
               <img
                 src={appwriteService.getFilePreview(post.featuredImage)}
                 alt={post.title}
@@ -158,7 +160,7 @@ export default function PostForm({ post }) {
           <Button
             type="submit"
             bgColor={post ? "bg-green-500" : undefined}
-            className="w-full cursor-pointer"
+            className="w-full cursor-pointer py-3"
           >
             {post ? "Update" : "Submit"}
           </Button>

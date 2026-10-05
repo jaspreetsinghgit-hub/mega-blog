@@ -5,11 +5,11 @@ export default function RTE({ name, control, label, defaultValue = "", required 
   return (
     <div className="w-full">
       {label && (
-        <label className="mb-2 block pl-1 text-sm font-medium text-slate-700">
+        <label className="mb-2 block text-sm font-bold text-slate-700">
           {label}{required && <span className="ml-1 text-red-500">*</span>}
         </label>
       )}
-      <div className="overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <Controller
           name={name || "content"}
           control={control}

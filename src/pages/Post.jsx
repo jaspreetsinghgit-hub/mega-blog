@@ -40,9 +40,9 @@ export default function Post() {
   };
 
   return post ? (
-    <div className="py-10 sm:py-14">
+    <div className="w-full py-10 sm:py-16">
       <Container>
-        <article className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <article className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.10)]">
           <div className="relative w-full bg-slate-100">
             <img
               src={service.getFilePreview(post.featuredImage)}
@@ -64,8 +64,8 @@ export default function Post() {
             )}
           </div>
 
-          <div className="px-5 py-8 sm:px-10 sm:py-10">
-            <h1 className="mb-8 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <div className="px-6 py-9 sm:px-12 sm:py-12">
+            <h1 className="mb-8 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
               {post.title}
             </h1>
 

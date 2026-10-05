@@ -101,3 +101,127 @@
   .browser-css h1 { font-size: 1.6rem; }
   .browser-css h2 { font-size: 1.4rem; }
 }
+
+
+/* MegaBlog dark theme: visual styling only. */
+html.dark-theme body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+html.dark-theme .bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #0f172a, #111827, #172554);
+}
+
+html.dark-theme .bg-white,
+html.dark-theme .bg-white\/90 {
+  background-color: #111827;
+}
+
+html.dark-theme .bg-slate-50,
+html.dark-theme .bg-slate-50\/70,
+html.dark-theme .bg-slate-50\/80,
+html.dark-theme .bg-slate-100,
+html.dark-theme .bg-slate-100\/80 {
+  background-color: #1e293b;
+}
+
+html.dark-theme .bg-slate-200 {
+  background-color: #334155;
+}
+
+html.dark-theme .border-slate-100,
+html.dark-theme .border-slate-200,
+html.dark-theme .border-slate-200\/80 {
+  border-color: #334155;
+}
+
+html.dark-theme .border-red-100 {
+  border-color: #7f1d1d;
+}
+
+html.dark-theme .bg-red-50 {
+  background-color: #450a0a;
+}
+
+html.dark-theme .text-slate-900,
+html.dark-theme .text-black {
+  color: #f8fafc;
+}
+
+html.dark-theme .text-slate-700 {
+  color: #cbd5e1;
+}
+
+html.dark-theme .text-slate-600 {
+  color: #cbd5e1;
+}
+
+html.dark-theme .text-slate-500 {
+  color: #94a3b8;
+}
+
+html.dark-theme .text-slate-400 {
+  color: #94a3b8;
+}
+
+html.dark-theme .text-blue-600 {
+  color: #60a5fa;
+}
+
+html.dark-theme .text-blue-700 {
+  color: #93c5fd;
+}
+
+html.dark-theme .text-red-600 {
+  color: #fca5a5;
+}
+
+html.dark-theme .hover\\:bg-white:hover {
+  background-color: #1e293b;
+}
+
+html.dark-theme .hover\\:bg-slate-50:hover {
+  background-color: #1e293b;
+}
+
+html.dark-theme .focus\\:bg-white:focus {
+  background-color: #111827;
+}
+
+html.dark-theme .focus\\:border-blue-500:focus {
+  border-color: #3b82f6;
+}
+
+html.dark-theme .bg-gradient-to-r {
+  background-image: linear-gradient(to right, #1e293b, #172554);
+}
+
+html.dark-theme .browser-css {
+  color: #cbd5e1;
+}
+
+html.dark-theme .browser-css h1,
+html.dark-theme .browser-css h2,
+html.dark-theme .browser-css h3,
+html.dark-theme .browser-css h4 {
+  color: #f8fafc;
+}
+
+html.dark-theme .browser-css blockquote {
+  background: #172554;
+  color: #cbd5e1;
+  border-left-color: #3b82f6;
+}
+
+html.dark-theme .browser-css a {
+  color: #60a5fa;
+}
+
+html.dark-theme .shadow-slate-300\/40 {
+  --tw-shadow-color: rgb(2 6 23 / 0.45);
+}
+
+html.dark-theme .shadow-slate-200\/50 {
+  --tw-shadow-color: rgb(2 6 23 / 0.45);
+}
